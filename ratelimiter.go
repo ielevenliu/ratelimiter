@@ -87,3 +87,23 @@ func (s *SlidingWindowRateLimiter) limiter() bool {
 	s.Counters[curWindow]++
 	return true
 }
+
+type LeakyBucketRateLimiter struct{}
+
+func NewLeakyBucketRateLimiter() *LeakyBucketRateLimiter {
+	return &LeakyBucketRateLimiter{}
+}
+
+func (l *LeakyBucketRateLimiter) limiter() bool {
+	return true
+}
+
+type TokenBucketRateLimiter struct{}
+
+func NewTokenBucketRateLimiter() *TokenBucketRateLimiter {
+	return &TokenBucketRateLimiter{}
+}
+
+func (t *TokenBucketRateLimiter) limiter() bool {
+	return true
+}
